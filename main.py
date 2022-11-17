@@ -1,5 +1,6 @@
 from random import randint
 from graphic_arts.start_game_banner import run_screensaver
+from typing import Optional
 
 DEFAULT_ATTACK = 5
 DEFAULT_DEFENCE = 10 
@@ -76,7 +77,7 @@ def start_training(char_class: Character) -> str:
           'defence — чтобы блокировать атаку противника '
           'или special — чтобы использовать свою суперсилу.')
     print('Если не хочешь тренироваться, введи команду skip.')
-    cmd: str = None
+    cmd: Optional[str] = None
     while cmd != 'skip':
         cmd = input('Введи команду: ')
         if cmd in commands:
@@ -91,7 +92,7 @@ def choice_char_class(char_name: str) -> Character:
     # Добавили словарь, в котором соотносится ввод пользователя и класс персонажа.
     game_classes = {'warrior': Warrior, 'mage': Mage, 'healer': Healer}
     
-    approve_choice: str  = None
+    approve_choice: Optional[str]  = None
     
     while approve_choice != 'y':
         selected_class = input('Введи название персонажа, '
